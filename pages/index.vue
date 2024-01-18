@@ -1,5 +1,9 @@
 <template>
-  <p>Hello world</p>
+  <h1>Hello world</h1>
+  
+  <ClientOnly>
+    <ContentManager :item="homepageData?.content.en" v-if="homepageData" />
+  </ClientOnly>
 </template>
 
 
@@ -14,8 +18,7 @@ const { data } = useAsyncData(async (ctx) => {
   return { homepage }
 });
 
-console.log(data.value?.homepage)
-
+const homepageData = data.value?.homepage;
 </script>
 
 <style></style>
